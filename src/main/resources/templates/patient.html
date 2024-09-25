@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f7;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="tel"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .gender-group, .marital-status-group, .medical-history-group {
+            margin-bottom: 15px;
+        }
+
+        .gender-group label, .marital-status-group label {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .gender-group input[type="radio"], .marital-status-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .medical-history-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+            background-color: #e8f5e9;
+        }
+
+        .form-container p {
+            color: #3498db;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>Patient Form</h2>
+        <p Style="color:green;">[[${message}]]</p>
+        <form action="PatientData" method="POST">
+            <label for="first-name">Name:</label>
+            <input type="text" id="first-name" name="name" placeholder="Enter name" required>
+
+            <div class="gender-group">
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="M"> Male</label>
+                <label><input type="radio" name="gender" value="F"> Female</label>
+            </div>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <div class="marital-status-group">
+                <label>Marital Status:</label>
+                <label><input type="radio" name="marialStatus" value="M"> Married</label>
+                <label><input type="radio" name="marialStatus" value="U"> Unmarried</label>
+                <label><input type="radio" name="marialStatus" value="D"> Divorced</label>
+                <label><input type="radio" name="marialStatus" value="LS"> Legally Separated</label>
+            </div>
+
+            <label for="present-address">Present Address:</label>
+            <input type="text" id="present-address" name="presentAddress" placeholder="Enter present address" required>
+
+            <label for="communication-address">Communication Address:</label>
+            <input type="text" id="communication-address" name="communicationAddress" placeholder="Enter communication address">
+
+            <div class="medical-history-group">
+                <label>Past Medical History:</label><br>
+                <label><input type="checkbox" name="pastMedicalHistory" value="Anemia"> Anemia</label>
+                <label><input type="checkbox" name="pastMedicalHistory" value="Asthma"> Asthma</label>
+                <label><input type="checkbox" name="pastMedicalHistory" value="Diabetes"> Diabetes</label>
+                <label><input type="checkbox" name="pastMedicalHistory" value="Cancer"> Cancer</label>
+                <label><input type="checkbox" name="pastMedicalHistory" value="Ulcer"> Ulcer</label>
+                <label><input type="checkbox" name="pastMedicalHistory" value="Chickenpox"> Chickenpox</label><br>
+            </div>
+
+            <label for="other-details">Other Details:</label>
+            <textarea id="other-details" name="otherDetails" placeholder="Enter any other details"></textarea>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+</body>
+</html>
